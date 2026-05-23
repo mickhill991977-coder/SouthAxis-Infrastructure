@@ -49,23 +49,23 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="metal-panel p-6 md:p-9">
+    <form onSubmit={handleSubmit} className="metal-panel p-5 sm:p-6 md:p-9">
       <input className="hidden" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <div className="mb-8 border-l border-axis-gold pl-5">
-        <p className="font-mono text-sm uppercase tracking-[0.24em] text-axis-goldSoft">Start the conversation</p>
-        <h2 className="font-display mt-3 text-4xl font-black uppercase leading-none text-white">Request a quote</h2>
+        <p className="font-mono text-xs uppercase tracking-[0.18em] text-axis-goldSoft sm:text-sm sm:tracking-[0.24em]">Start the conversation</p>
+        <h2 className="font-display mt-3 text-3xl font-black uppercase leading-none text-white sm:text-4xl">Request a quote</h2>
       </div>
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
         <Field label="Full name" name="fullName" required />
         <Field label="Email" name="email" type="email" required />
         <Field label="Phone" name="phone" type="tel" required />
         <Field label="Company name" name="companyName" />
         <label className="md:col-span-2">
-          <span className="text-xs font-black uppercase tracking-[0.2em] text-axis-silver">Project type</span>
+          <span className="text-xs font-black uppercase tracking-[0.14em] text-axis-silver sm:tracking-[0.2em]">Project type</span>
           <select
             name="projectType"
             required
-            className="mt-2 w-full border-axis-gold/30 bg-axis-black px-4 py-4 text-white shadow-none focus:border-axis-gold focus:ring-axis-gold"
+            className="mt-2 min-h-12 w-full border-axis-gold/30 bg-axis-black px-4 py-4 text-base text-white shadow-none focus:border-axis-gold focus:ring-axis-gold"
             defaultValue=""
           >
             <option value="" disabled>
@@ -79,12 +79,12 @@ export function ContactForm() {
           </select>
         </label>
         <label className="md:col-span-2">
-          <span className="text-xs font-black uppercase tracking-[0.2em] text-axis-silver">Message</span>
+          <span className="text-xs font-black uppercase tracking-[0.14em] text-axis-silver sm:tracking-[0.2em]">Message</span>
           <textarea
             name="message"
             required
             rows={7}
-            className="mt-2 w-full border-axis-gold/30 bg-axis-black px-4 py-4 text-white shadow-none focus:border-axis-gold focus:ring-axis-gold"
+            className="mt-2 min-h-40 w-full border-axis-gold/30 bg-axis-black px-4 py-4 text-base text-white shadow-none focus:border-axis-gold focus:ring-axis-gold"
             placeholder="Tell us about the site, package scope, location and programme."
           />
         </label>
@@ -104,7 +104,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={state.status === "loading"}
-        className="mt-6 inline-flex w-full items-center justify-center gap-2 border border-axis-gold bg-axis-gold px-6 py-4 text-sm font-black uppercase tracking-[0.18em] text-axis-black shadow-gold hover:-translate-y-1 hover:bg-axis-goldSoft disabled:cursor-not-allowed disabled:opacity-70"
+        className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 border border-axis-gold bg-axis-gold px-5 py-4 text-center text-sm font-black uppercase tracking-[0.12em] text-axis-black shadow-gold hover:-translate-y-1 hover:bg-axis-goldSoft disabled:cursor-not-allowed disabled:opacity-70 sm:px-6 sm:tracking-[0.18em]"
       >
         {state.status === "loading" ? <Loader2 className="animate-spin" size={18} /> : <Send size={18} />}
         Send enquiry
@@ -126,12 +126,12 @@ function Field({
 }) {
   return (
     <label>
-      <span className="text-xs font-black uppercase tracking-[0.2em] text-axis-silver">{label}</span>
+      <span className="text-xs font-black uppercase tracking-[0.14em] text-axis-silver sm:tracking-[0.2em]">{label}</span>
       <input
         name={name}
         type={type}
         required={required}
-        className="mt-2 w-full border-axis-gold/30 bg-axis-black px-4 py-4 text-white shadow-none focus:border-axis-gold focus:ring-axis-gold"
+        className="mt-2 min-h-12 w-full border-axis-gold/30 bg-axis-black px-4 py-4 text-base text-white shadow-none focus:border-axis-gold focus:ring-axis-gold"
       />
     </label>
   );

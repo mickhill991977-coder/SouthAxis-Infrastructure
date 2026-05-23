@@ -28,7 +28,7 @@ export function AnimatedStats() {
   }, []);
 
   return (
-    <div ref={ref} className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-4">
+    <div ref={ref} className="grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
       {stats.map((stat, index) => (
         <StatCell key={stat.label} active={visible} index={index} {...stat} />
       ))}
@@ -75,8 +75,8 @@ function StatCell({
   }, [active, index, value]);
 
   return (
-    <div className="bg-axis-black/90 p-6 md:p-8">
-      <div className="font-display text-4xl font-black text-white md:text-5xl">
+    <div className="bg-axis-black/90 p-5 sm:p-6 md:p-8">
+      <div className="font-display text-3xl font-black text-white sm:text-4xl md:text-5xl">
         <span className="gold-text">{count}</span>
         <span className="ml-1 text-axis-goldSoft">{suffix}</span>
       </div>

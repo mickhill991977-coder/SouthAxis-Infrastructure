@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
-import { SectionHeading } from "@/components/section-heading";
-import { projects } from "@/lib/content";
+import { imageSet, projects } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Project Showcase",
-  description: "Selected commercial infrastructure and residential groundworks project examples."
+  description: "Premium commercial infrastructure and residential groundworks project examples."
 };
 
 export default function ProjectsPage() {
@@ -13,27 +13,36 @@ export default function ProjectsPage() {
     <>
       <PageHero
         eyebrow="Project showcase"
-        title="Infrastructure groundwork with evidence behind the promise"
-        body="A snapshot of the project types SouthAxis is structured to support, from large enabling works to exacting residential foundations."
+        title="Dark gallery. Heavy groundwork. Clean outcomes."
+        body="A high-level view of the project environments SouthAxis is built to support, from commercial enabling works to residential foundations and drainage renewals."
+        image={imageSet.concrete}
       />
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <SectionHeading eyebrow="Selected works" title="Built around programme certainty" />
-        <div className="mt-12 grid gap-6">
-          {projects.map((project, index) => (
-            <article key={project.title} className="metal-panel grid overflow-hidden lg:grid-cols-[0.42fr_0.58fr]">
-              <div className="bg-grid bg-[length:28px_28px] p-8">
-                <p className="font-mono text-sm uppercase tracking-wide text-axis-goldSoft">
-                  0{index + 1} / {project.sector}
-                </p>
-                <h2 className="mt-5 text-3xl font-black uppercase text-white">{project.title}</h2>
+        <div className="grid gap-6 md:grid-cols-2">
+          {projects.map((project) => (
+            <article key={project.title} className="group metal-panel overflow-hidden hover:-translate-y-1 hover:border-axis-gold/60">
+              <div className="relative h-[420px] overflow-hidden">
+                <div className="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-105" style={{ backgroundImage: `url(${project.image})` }} />
+                <div className="absolute inset-0 bg-gradient-to-t from-axis-black via-axis-black/45 to-transparent" />
+                <div className="absolute right-5 top-5 flex h-12 w-12 items-center justify-center border border-axis-gold bg-axis-black/75 text-axis-gold">
+                  <ArrowUpRight size={22} />
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-7">
+                  <p className="font-mono text-xs uppercase tracking-[0.24em] text-axis-goldSoft">{project.type}</p>
+                  <h2 className="font-display mt-3 text-4xl font-black uppercase leading-none text-white md:text-5xl">{project.title}</h2>
+                </div>
               </div>
-              <div className="p-8">
-                <p className="text-lg leading-8 text-axis-silver">{project.summary}</p>
-                <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              <div className="p-7">
+                <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-axis-silver">
+                  <MapPin size={17} className="text-axis-gold" />
+                  {project.location}
+                </div>
+                <p className="mt-5 text-lg leading-8 text-axis-muted">{project.description}</p>
+                <div className="mt-7 grid gap-3 sm:grid-cols-3">
                   {project.metrics.map((metric) => (
-                    <div key={metric.label} className="border border-white/10 p-4">
-                      <div className="font-mono text-xl font-bold text-axis-gold">{metric.value}</div>
-                      <p className="mt-2 text-sm uppercase tracking-wide text-axis-muted">{metric.label}</p>
+                    <div key={metric.label} className="border border-axis-gold/20 bg-axis-black/60 p-4">
+                      <div className="font-display text-2xl font-black text-axis-goldSoft">{metric.value}</div>
+                      <p className="mt-1 text-xs uppercase tracking-[0.18em] text-axis-muted">{metric.label}</p>
                     </div>
                   ))}
                 </div>

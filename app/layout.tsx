@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
+import { Inter, Oswald, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
@@ -13,6 +13,12 @@ const inter = Inter({
 const mono = Roboto_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+  display: "swap"
+});
+
+const oswald = Oswald({
+  subsets: ["latin"],
+  variable: "--font-display",
   display: "swap"
 });
 
@@ -34,7 +40,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${mono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${mono.variable} ${oswald.variable}`}>
       <body className="font-sans antialiased">
         <Header />
         <main>{children}</main>

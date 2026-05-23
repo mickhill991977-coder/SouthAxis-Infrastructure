@@ -4,9 +4,12 @@ import {
   Construction,
   Droplets,
   Fence,
+  Hammer,
   LandPlot,
   Layers3,
-  Shovel
+  Route,
+  Shovel,
+  UsersRound
 } from "lucide-react";
 
 export const navItems = [
@@ -16,94 +19,174 @@ export const navItems = [
   { href: "/contact", label: "Contact" }
 ];
 
+export const imageSet = {
+  hero: "/website_header.jpg",
+  brand: "/logo.jpg",
+  excavator: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1600&q=82",
+  drainage: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1600&q=82",
+  foundations: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=82",
+  concrete: "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&w=1600&q=82",
+  roadworks: "https://images.unsplash.com/photo-1517089596392-fb9a9033e05c?auto=format&fit=crop&w=1600&q=82",
+  residential: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=82",
+  team: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=82"
+};
+
 export const stats = [
-  { value: "6+", label: "Core disciplines" },
-  { value: "24h", label: "Enquiry response" }
+  { value: 18, suffix: "+", label: "Project disciplines" },
+  { value: 42, suffix: "k m2", label: "Formation capacity" },
+  { value: 24, suffix: "h", label: "Tender response target" },
+  { value: 0, suffix: "", label: "Lost-time mindset" }
 ];
 
 export const services = [
   {
     title: "Groundworks",
-    description: "Bulk excavations, reduced levels, trenching, reinstatement and robust site formation for active building programmes.",
+    description:
+      "Bulk excavations, reduced levels, trenching, reinstatement and engineered build-ups for commercial construction sites and high-spec residential schemes.",
     icon: Shovel,
-    points: ["Reduced dig and formation", "Trenching and reinstatement", "Sub-base preparation"]
+    image: imageSet.excavator,
+    points: ["Reduced dig and formation", "Trenching and reinstatement", "Sub-base preparation", "Spoil strategy support"]
   },
   {
     title: "Foundations",
-    description: "Foundation preparation and concrete-ready works for residential plots, commercial footprints and extension projects.",
+    description:
+      "Foundation preparation and concrete-ready packages for structural footprints, extensions, pads, strips and multi-plot development programmes.",
     icon: Layers3,
-    points: ["Strip and pad foundations", "Oversite preparation", "Concrete coordination"]
+    image: imageSet.foundations,
+    points: ["Strip and pad foundations", "Oversite preparation", "Concrete coordination", "Inspection-ready excavations"]
   },
   {
     title: "Drainage",
-    description: "Foul, storm and surface water drainage packages delivered with careful falls, access planning and inspection readiness.",
+    description:
+      "Foul, storm and surface water drainage delivered with accurate falls, chamber coordination and a clean route to inspection and adoption.",
     icon: Droplets,
-    points: ["Foul and storm systems", "Manholes and inspection chambers", "Soakaways and attenuation prep"]
+    image: imageSet.drainage,
+    points: ["Foul and storm systems", "Manholes and chambers", "Soakaways and attenuation prep", "Surface water management"]
   },
   {
     title: "External Works",
-    description: "Finishing infrastructure around buildings, yards and access routes, built for durability and clean handover.",
+    description:
+      "Hardstanding, kerbs, edgings, access routes and external finishes designed around durable performance and professional handover.",
     icon: Fence,
-    points: ["Kerbs and edgings", "Paving preparation", "Hardstanding build-ups"]
+    image: imageSet.roadworks,
+    points: ["Kerbs and edgings", "Road and yard build-ups", "Paving preparation", "Finishing infrastructure"]
   },
   {
     title: "Site Preparation",
-    description: "Early works that make construction possible, from clearance and access preparation to compound-ready surfaces.",
+    description:
+      "Early enabling works that turn constrained land into a controlled construction environment, ready for follow-on trades and plant movement.",
     icon: Construction,
-    points: ["Site clearance", "Temporary access", "Enabling works"]
+    image: imageSet.concrete,
+    points: ["Site clearance", "Temporary access", "Compound preparation", "Sequenced enabling works"]
   },
   {
     title: "Commercial Infrastructure",
-    description: "Civil and groundwork support for developers and contractors managing multi-trade site environments.",
+    description:
+      "Civil and groundwork packages for developers, principal contractors and commercial operators working to demanding site programmes.",
     icon: Building2,
-    points: ["Developer packages", "Contractor support", "Programme-led sequencing"]
+    image: imageSet.team,
+    points: ["Developer packages", "Contractor support", "Programme-led sequencing", "Multi-trade coordination"]
   },
   {
     title: "Residential Groundworks",
-    description: "Domestic groundwork projects delivered with clear communication, tidy working methods and practical planning.",
+    description:
+      "High-quality domestic groundwork for private clients, extensions, drainage improvements, driveways and small development plots.",
     icon: LandPlot,
-    points: ["Extensions and plots", "Driveway preparation", "Private drainage"]
+    image: imageSet.residential,
+    points: ["Extensions and plots", "Private drainage", "Driveway preparation", "Clean property protection"]
   },
   {
     title: "Utility Preparation",
-    description: "Ducting, service trenches and route preparation for coordinated utility installation and site infrastructure.",
+    description:
+      "Service trenches, duct routes and reinstatement packages planned to integrate cleanly with utilities, roads and site logistics.",
     icon: Cable,
-    points: ["Service trenches", "Duct routes", "Backfill and reinstatement"]
+    image: imageSet.roadworks,
+    points: ["Service trenches", "Duct routes", "Backfill and reinstatement", "Route coordination"]
   }
 ];
 
-export const featuredProjects = [
+export const projects = [
   {
     title: "Distribution Yard Enabling Works",
-    sector: "Commercial",
-    summary: "Site clearance, formation and drainage coordination for a logistics yard upgrade."
+    location: "Midlands logistics corridor",
+    type: "Commercial infrastructure",
+    image: imageSet.roadworks,
+    description:
+      "Formation, drainage coordination and hardstanding preparation for a high-traffic distribution yard upgrade.",
+    metrics: [
+      { value: "8 wk", label: "Programme" },
+      { value: "4,800m2", label: "Formation" },
+      { value: "0", label: "Lost-time incidents" }
+    ]
   },
   {
     title: "Multi-Plot Foundation Package",
-    sector: "Residential development",
-    summary: "Sequenced foundation preparation and external works support across a compact development site."
+    location: "Residential development site",
+    type: "Foundations",
+    image: imageSet.foundations,
+    description:
+      "Sequenced excavation, trench preparation and concrete coordination across a compact residential development footprint.",
+    metrics: [
+      { value: "12", label: "Plots" },
+      { value: "1,100m", label: "Trenching" },
+      { value: "4", label: "Inspection gates" }
+    ]
   },
   {
-    title: "Private Drainage Renewal",
-    sector: "Residential",
-    summary: "Targeted excavation and drainage replacement with controlled access around an occupied property."
+    title: "Primary Drainage Renewal",
+    location: "Occupied private estate",
+    type: "Drainage",
+    image: imageSet.drainage,
+    description:
+      "Targeted drainage replacement with controlled excavations, protected access and clean reinstatement around live property use.",
+    metrics: [
+      { value: "42m", label: "Drain run" },
+      { value: "3 d", label: "Duration" },
+      { value: "100%", label: "Access retained" }
+    ]
+  },
+  {
+    title: "Commercial Site Preparation",
+    location: "Out-of-town development",
+    type: "Site preparation",
+    image: imageSet.excavator,
+    description:
+      "Clearance, reduced levels and temporary construction access for a commercial shell and core build programme.",
+    metrics: [
+      { value: "6 ac", label: "Site area" },
+      { value: "2", label: "Access phases" },
+      { value: "24h", label: "Reporting cycle" }
+    ]
   }
 ];
 
-export const projects = featuredProjects.map((project, index) => ({
-  ...project,
-  metrics: [
-    { value: index === 0 ? "8 wk" : index === 1 ? "12" : "3 d", label: index === 0 ? "Programme" : index === 1 ? "Plots" : "Duration" },
-    { value: index === 0 ? "4,800m2" : index === 1 ? "1,100m" : "42m", label: index === 0 ? "Formation" : index === 1 ? "Trenching" : "Drain run" },
-    { value: "0", label: "Lost-time incidents" }
-  ]
-}));
+export const testimonials = [
+  {
+    quote:
+      "SouthAxis brought the kind of site discipline you want on a pressured commercial programme. Clear communication, clean sequencing and no drama.",
+    name: "Commercial Development Manager",
+    company: "Regional contractor"
+  },
+  {
+    quote:
+      "Their groundwork team understood the constraints immediately and helped us protect access while still moving the foundation package forward.",
+    name: "Private Client Representative",
+    company: "Residential scheme"
+  },
+  {
+    quote:
+      "Drainage details were handled properly from day one. It made inspection and handover much more straightforward.",
+    name: "Project Quantity Surveyor",
+    company: "Construction partner"
+  }
+];
 
 export const blogPosts = [
   {
     slug: "planning-groundworks-before-mobilisation",
     category: "Planning",
     title: "Planning groundworks before mobilisation",
+    image: imageSet.excavator,
     excerpt: "The strongest groundwork packages are decided before plant arrives, with access, sequencing and inspection points already understood.",
     body: [
       {
@@ -120,6 +203,7 @@ export const blogPosts = [
     slug: "why-drainage-details-drive-site-performance",
     category: "Drainage",
     title: "Why drainage details drive site performance",
+    image: imageSet.drainage,
     excerpt: "Drainage design affects programme, safety and long-term performance, so the details deserve early attention.",
     body: [
       {
@@ -136,6 +220,7 @@ export const blogPosts = [
     slug: "foundations-for-residential-projects",
     category: "Foundations",
     title: "Foundation preparation for residential projects",
+    image: imageSet.residential,
     excerpt: "Residential groundwork benefits from the same discipline as commercial works: scope clarity, clean excavations and practical communication.",
     body: [
       {
@@ -148,4 +233,12 @@ export const blogPosts = [
       }
     ]
   }
+];
+
+export const footerServices = services.slice(0, 6).map((service) => service.title);
+
+export const capabilityIcons = [
+  { icon: Hammer, label: "Groundworks" },
+  { icon: Route, label: "External works" },
+  { icon: UsersRound, label: "Site teams" }
 ];

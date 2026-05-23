@@ -1,0 +1,9 @@
+<svg width="720" height="198" viewBox="0 0 720 198" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M28 30H167L197 60H58L28 30Z" fill="#C99A2E"/>
+  <path d="M58 78H197L167 108H28L58 78Z" fill="#D7D9D9"/>
+  <path d="M28 126H167L197 156H58L28 126Z" fill="#C99A2E"/>
+  <path d="M225 45H689" stroke="#C99A2E" stroke-width="3"/>
+  <text x="224" y="108" fill="#F6F2E8" font-family="Arial Black, Impact, sans-serif" font-size="58" font-weight="900" letter-spacing="2">SOUTHAXIS</text>
+  <text x="228" y="148" fill="#D7D9D9" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="8">INFRASTRUCTURE</text>
+  <path d="M225 170H689" stroke="#D7D9D9" stroke-opacity=".45" stroke-width="2"/>
+</svg>

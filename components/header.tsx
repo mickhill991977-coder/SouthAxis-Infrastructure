@@ -1,32 +1,31 @@
 import Link from "next/link";
-import { Hammer } from "lucide-react";
 import { navItems } from "@/lib/content";
+import { Logo } from "@/components/logo";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-axis-black/90 backdrop-blur">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center border border-axis-gold bg-axis-gold/10 text-axis-gold">
-            <Hammer size={22} />
-          </span>
-          <span>
-            <span className="block text-lg font-black uppercase leading-none text-white">SouthAxis</span>
-            <span className="block text-xs font-semibold uppercase tracking-[0.22em] text-axis-goldSoft">Infrastructure</span>
-          </span>
+    <header className="sticky top-0 z-50 border-b border-axis-gold/20 bg-axis-black/78 backdrop-blur-xl">
+      <div className="mx-auto flex min-h-24 max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-4 lg:px-8">
+        <Link href="/" className="group flex items-center">
+          <Logo priority className="h-16 w-32 object-cover object-center transition group-hover:opacity-[0.85] md:h-20 md:w-40" />
         </Link>
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="order-3 flex w-full items-center justify-between gap-4 overflow-x-auto border-t border-white/10 pt-4 lg:order-none lg:w-auto lg:justify-start lg:border-t-0 lg:pt-0">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="text-sm font-bold uppercase tracking-wide text-axis-silver transition hover:text-axis-goldSoft">
+            <Link
+              key={item.href}
+              href={item.href}
+              className="group relative text-xs font-black uppercase tracking-[0.22em] text-axis-silver"
+            >
               {item.label}
+              <span className="absolute -bottom-2 left-0 h-px w-0 bg-axis-gold transition-all group-hover:w-full" />
             </Link>
           ))}
         </nav>
         <Link
           href="/contact"
-          className="hidden border border-axis-gold px-4 py-2 text-sm font-bold uppercase tracking-wide text-axis-goldSoft transition hover:bg-axis-gold hover:text-axis-black sm:inline-flex"
+          className="hidden border border-axis-gold bg-axis-gold/10 px-5 py-3 text-xs font-black uppercase tracking-[0.2em] text-axis-goldSoft hover:bg-axis-gold hover:text-axis-black md:inline-flex"
         >
-          Quote
+          Request a quote
         </Link>
       </div>
     </header>

@@ -4,7 +4,7 @@ import { AnimatedStats } from "@/components/animated-stats";
 import { CTA } from "@/components/cta";
 import { Logo } from "@/components/logo";
 import { SectionHeading } from "@/components/section-heading";
-import { capabilityIcons, imageSet, projects, services, testimonials } from "@/lib/content";
+import { capabilityIcons, contactDetails, imageSet, projects, services, testimonials } from "@/lib/content";
 
 export default function HomePage() {
   return (
@@ -18,12 +18,12 @@ export default function HomePage() {
             <div className="mb-5 inline-flex max-w-full border border-axis-gold/50 bg-axis-black/55 px-3 py-2 text-[0.68rem] font-black uppercase tracking-[0.14em] text-axis-goldSoft backdrop-blur sm:mb-7 sm:px-4 sm:text-xs sm:tracking-[0.22em]">
               Groundworks for serious construction
             </div>
-            <h1 className="font-display max-w-full text-[2.58rem] font-black uppercase leading-[0.9] text-white min-[390px]:text-[2.72rem] min-[430px]:text-[2.95rem] sm:max-w-5xl sm:text-6xl md:text-8xl lg:text-9xl">
-              <span className="steel-text">Groundworks.</span>
+            <h1 className="font-display max-w-full whitespace-normal break-normal text-[2.65rem] font-black uppercase leading-none tracking-tight text-white min-[390px]:text-5xl sm:max-w-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
+              <span className="steel-text whitespace-nowrap break-normal">Groundworks.</span>
               <br />
-              Infrastructure.
+              <span className="whitespace-nowrap break-normal">Infrastructure.</span>
               <br />
-              <span className="gold-text">Future.</span>
+              <span className="gold-text whitespace-nowrap break-normal">Future.</span>
             </h1>
             <p className="mt-6 max-w-full text-base leading-7 text-axis-silver sm:mt-8 sm:max-w-2xl sm:text-lg sm:leading-8 md:text-xl">
               Professional groundwork and infrastructure solutions for commercial developments,
@@ -31,10 +31,10 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">
               <Link
-                href="/contact"
+                href={contactDetails.phoneHref}
                 className="inline-flex min-h-12 w-full max-w-full items-center justify-center gap-2 border border-axis-gold bg-axis-gold px-5 py-4 text-center text-sm font-black uppercase tracking-[0.12em] text-axis-black shadow-gold hover:-translate-y-1 hover:bg-axis-goldSoft sm:w-auto sm:px-7 sm:tracking-[0.18em]"
               >
-                Request a Quote <ArrowRight size={18} />
+                Call {contactDetails.phone} <ArrowRight size={18} />
               </Link>
               <Link
                 href="/projects"

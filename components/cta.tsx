@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Logo } from "@/components/logo";
+import { contactDetails } from "@/lib/content";
 
 export function CTA() {
   return (
@@ -17,10 +18,10 @@ export function CTA() {
           </h2>
         </div>
         <Link
-          href="/contact"
+          href={contactDetails.phoneHref}
           className="inline-flex min-h-12 w-full items-center justify-center gap-2 border border-axis-gold bg-axis-gold px-5 py-4 text-center text-sm font-black uppercase tracking-[0.12em] text-axis-black shadow-gold hover:-translate-y-1 hover:bg-axis-goldSoft sm:w-auto sm:px-7 sm:tracking-[0.18em]"
         >
-          Contact us <ArrowRight size={18} />
+          Call {contactDetails.phone} <ArrowRight size={18} />
         </Link>
       </div>
     </section>

@@ -3,6 +3,7 @@ import { Inter, Oswald, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { contactDetails } from "@/lib/content";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -39,9 +40,31 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "SouthAxis Infrastructure",
+    telephone: contactDetails.phone,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "6 St. Georges Square",
+      addressLocality: "Portsmouth",
+      addressRegion: "Hampshire",
+      addressCountry: "England",
+      postalCode: "PO1 3EY"
+    },
+    identifier: `Company No: ${contactDetails.companyNo}`,
+    areaServed: "United Kingdom",
+    serviceType: ["Groundworks", "Drainage", "Foundations", "External works", "Site preparation"]
+  };
+
   return (
     <html lang="en" className={`${inter.variable} ${mono.variable} ${oswald.variable}`}>
       <body className="font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <Header />
         <main>{children}</main>
         <Footer />

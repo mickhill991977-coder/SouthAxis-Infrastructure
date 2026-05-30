@@ -57,7 +57,7 @@ export function ContactForm() {
       </div>
       <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
         <Field label="Full name" name="fullName" required />
-        <Field label="Email" name="email" type="email" required />
+        <Field label="Email (optional)" name="email" type="email" />
         <Field label="Phone" name="phone" type="tel" required />
         <Field label="Company name" name="companyName" />
         <label className="md:col-span-2">

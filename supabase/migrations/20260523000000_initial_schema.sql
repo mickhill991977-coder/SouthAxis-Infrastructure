@@ -3,7 +3,7 @@ create extension if not exists pgcrypto;
 create table if not exists public.contact_messages (
   id uuid primary key default gen_random_uuid(),
   full_name text not null,
-  email text not null,
+  email text,
   phone text not null,
   company_name text,
   project_type text not null,

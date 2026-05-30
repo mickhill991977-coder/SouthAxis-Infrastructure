@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import { footerServices, navItems } from "@/lib/content";
+import { Building2, Facebook, Instagram, Linkedin, MapPin, Phone } from "lucide-react";
+import { contactDetails, footerServices, navItems } from "@/lib/content";
 import { Logo } from "@/components/logo";
 
 export function Footer() {
@@ -45,9 +45,9 @@ export function Footer() {
         <div>
           <h2 className="font-display text-2xl font-black uppercase text-white">Contact</h2>
           <div className="mt-6 grid gap-4 text-sm text-axis-silver">
-            <span className="flex gap-3 leading-6"><Phone size={17} className="shrink-0 text-axis-gold" /> 0121 000 0000</span>
-            <span className="flex gap-3 leading-6"><Mail size={17} className="shrink-0 text-axis-gold" /> enquiries@southaxis.co.uk</span>
-            <span className="flex gap-3 leading-6"><MapPin size={17} className="shrink-0 text-axis-gold" /> United Kingdom</span>
+            <a href={contactDetails.phoneHref} className="flex gap-3 leading-6 text-axis-silver hover:text-axis-goldSoft"><Phone size={17} className="shrink-0 text-axis-gold" /> {contactDetails.phone}</a>
+            <span className="flex gap-3 leading-6"><MapPin size={17} className="shrink-0 text-axis-gold" /> {contactDetails.addressLines.join(", ")}</span>
+            <span className="flex gap-3 leading-6"><Building2 size={17} className="shrink-0 text-axis-gold" /> Company No: {contactDetails.companyNo}</span>
           </div>
         </div>
       </div>

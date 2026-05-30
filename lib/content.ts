@@ -25,18 +25,25 @@ export const imageSet = {
   excavator: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1600&q=82",
   drainage: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1600&q=82",
   foundations: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=82",
-  concrete: "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&w=1600&q=82",
-  roadworks: "https://images.unsplash.com/photo-1517089596392-fb9a9033e05c?auto=format&fit=crop&w=1600&q=82",
+  concrete: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=82",
+  roadworks: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1600&q=82",
   residential: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=82",
-  team: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=82"
+  team: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1600&q=82"
 };
 
 export const stats = [
-  { value: 18, suffix: "+", label: "Project disciplines" },
-  { value: 42, suffix: "k m2", label: "Formation capacity" },
-  { value: 24, suffix: "h", label: "Tender response target" },
-  { value: 0, suffix: "", label: "Lost-time mindset" }
+  { value: "18+", label: "Core Services" },
+  { value: "24hr", label: "Quote Response Target" },
+  { value: "100%", label: "Site-Focused Delivery" },
+  { value: "Commercial", label: "& Residential Projects" }
 ];
+
+export const contactDetails = {
+  phone: "07385 616316",
+  phoneHref: "tel:+447385616316",
+  addressLines: ["6 St. Georges Square", "Portsmouth", "Hampshire", "England", "PO1 3EY"],
+  companyNo: "17198562"
+};
 
 export const services = [
   {

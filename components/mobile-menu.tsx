@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { navItems } from "@/lib/content";
+import { contactDetails, navItems } from "@/lib/content";
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
@@ -34,11 +34,11 @@ export function MobileMenu() {
               </Link>
             ))}
             <Link
-              href="/contact"
+              href={contactDetails.phoneHref}
               onClick={() => setOpen(false)}
               className="mt-2 flex min-h-12 items-center justify-center border border-axis-gold bg-axis-gold px-4 text-sm font-black uppercase tracking-[0.16em] text-axis-black"
             >
-              Request a quote
+              Call {contactDetails.phone}
             </Link>
           </nav>
         </div>

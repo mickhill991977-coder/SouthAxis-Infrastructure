@@ -5,7 +5,7 @@ export type Database = {
         Row: {
           id: string;
           full_name: string;
-          email: string;
+          email: string | null;
           phone: string;
           company_name: string | null;
           project_type: string;
@@ -16,7 +16,7 @@ export type Database = {
         Insert: {
           id?: string;
           full_name: string;
-          email: string;
+          email?: string | null;
           phone: string;
           company_name?: string | null;
           project_type: string;
@@ -26,7 +26,7 @@ export type Database = {
         };
         Update: {
           full_name?: string;
-          email?: string;
+          email?: string | null;
           phone?: string;
           company_name?: string | null;
           project_type?: string;

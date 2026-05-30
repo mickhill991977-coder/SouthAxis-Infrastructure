@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Building2, Clock, MapPin, Phone } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { PageHero } from "@/components/page-hero";
-import { imageSet } from "@/lib/content";
+import { contactDetails, imageSet } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -34,9 +34,9 @@ export default function ContactPage() {
               drainage requirements and programme milestones.
             </p>
             <div className="mt-8 grid gap-4 text-sm text-axis-silver">
-              <span className="flex gap-3"><Phone size={18} className="shrink-0 text-axis-gold" /> 0121 000 0000</span>
-              <span className="flex gap-3"><Mail size={18} className="shrink-0 text-axis-gold" /> enquiries@southaxis.co.uk</span>
-              <span className="flex gap-3"><MapPin size={18} className="shrink-0 text-axis-gold" /> Projects across the United Kingdom</span>
+              <a href={contactDetails.phoneHref} className="flex gap-3 text-axis-silver hover:text-axis-goldSoft"><Phone size={18} className="shrink-0 text-axis-gold" /> {contactDetails.phone}</a>
+              <span className="flex gap-3"><MapPin size={18} className="shrink-0 text-axis-gold" /> {contactDetails.addressLines.join(", ")}</span>
+              <span className="flex gap-3"><Building2 size={18} className="shrink-0 text-axis-gold" /> Company No: {contactDetails.companyNo}</span>
               <span className="flex gap-3"><Clock size={18} className="shrink-0 text-axis-gold" /> Fast response for live opportunities</span>
             </div>
           </div>

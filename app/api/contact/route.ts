@@ -5,7 +5,7 @@ import { getSupabaseAdmin } from "@/lib/supabase-admin";
 
 const contactSchema = z.object({
   fullName: z.string().trim().min(2, "Full name is required").max(120),
-  email: z.string().trim().email("Enter a valid email address").max(160),
+  email: z.string().trim().email("Enter a valid email address").max(160).optional().or(z.literal("")),
   phone: z.string().trim().min(7, "Phone number is required").max(60),
   companyName: z.string().trim().max(160).optional().default(""),
   projectType: z.string().trim().min(2, "Project type is required").max(100),
@@ -31,7 +31,7 @@ export async function POST(request: Request) {
 
     const { error } = await supabase.from("contact_messages").insert({
       full_name: data.fullName,
-      email: data.email,
+      email: data.email || null,
       phone: data.phone,
       company_name: data.companyName || null,
       project_type: data.projectType,
@@ -50,12 +50,12 @@ export async function POST(request: Request) {
       from: "SouthAxis Website <onboarding@resend.dev>",
       to: process.env.CONTACT_TO_EMAIL!,
       subject: `New SouthAxis enquiry: ${data.projectType}`,
-      replyTo: data.email,
+      ...(data.email ? { replyTo: data.email } : {}),
       text: [
         "New SouthAxis Infrastructure enquiry",
         "",
         `Name: ${data.fullName}`,
-        `Email: ${data.email}`,
+        `Email: ${data.email || "Not provided"}`,
         `Phone: ${data.phone}`,
         `Company: ${data.companyName || "Not provided"}`,
         `Project type: ${data.projectType}`,

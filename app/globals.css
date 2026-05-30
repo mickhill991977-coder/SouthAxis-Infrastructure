@@ -40,7 +40,8 @@ p,
 a,
 button,
 span {
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 img,

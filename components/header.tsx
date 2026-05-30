@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navItems } from "@/lib/content";
+import { contactDetails, navItems } from "@/lib/content";
 import { Logo } from "@/components/logo";
 import { MobileMenu } from "@/components/mobile-menu";
 
@@ -23,10 +23,10 @@ export function Header() {
           ))}
         </nav>
         <Link
-          href="/contact"
+          href={contactDetails.phoneHref}
           className="ml-auto hidden border border-axis-gold bg-axis-gold/10 px-5 py-3 text-xs font-black uppercase tracking-[0.2em] text-axis-goldSoft hover:bg-axis-gold hover:text-axis-black lg:inline-flex"
         >
-          Request a quote
+          Call {contactDetails.phone}
         </Link>
         <MobileMenu />
       </div>

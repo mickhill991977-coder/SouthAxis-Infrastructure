@@ -37,7 +37,7 @@ export default function ServicesPage() {
                 </div>
               </div>
               <div className="relative overflow-hidden p-5 sm:p-8 md:p-12">
-                <div className="absolute right-0 top-0 hidden h-full w-28 skew-x-[-14deg] border-l border-axis-gold/25 bg-axis-gold/5 sm:block" />
+                <div className="absolute right-0 top-0 hidden h-full w-28 skew-x-[-14deg] border-l border-axis-gold/25 bg-axis-gold/5 lg:block" />
                 <p className="font-mono text-xs uppercase tracking-[0.16em] text-axis-goldSoft sm:text-sm sm:tracking-[0.25em]">0{index + 1} / Capability</p>
                 <h2 className="font-display mt-5 text-4xl font-black uppercase leading-none text-white sm:text-5xl md:text-7xl">{service.title}</h2>
                 <p className="mt-5 max-w-2xl text-base leading-7 text-axis-silver sm:mt-6 sm:text-lg sm:leading-8">{service.description}</p>

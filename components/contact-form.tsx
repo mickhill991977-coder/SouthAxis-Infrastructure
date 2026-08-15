@@ -77,7 +77,7 @@ export function ContactForm() {
           <select
             name="projectType"
             required
-            className="mt-2 min-h-12 w-full border-axis-gold/30 bg-axis-black px-4 py-4 text-base text-white shadow-none focus:border-axis-gold focus:ring-axis-gold"
+            className="mt-2 min-h-12 w-full border-axis-gold/30 bg-axis-black px-4 py-4 text-base text-[16px] text-white shadow-none focus:border-axis-gold focus:ring-axis-gold"
             defaultValue=""
           >
             <option value="" disabled>
@@ -96,7 +96,7 @@ export function ContactForm() {
             name="message"
             required
             rows={7}
-            className="mt-2 min-h-40 w-full border-axis-gold/30 bg-axis-black px-4 py-4 text-base text-white shadow-none focus:border-axis-gold focus:ring-axis-gold"
+            className="mt-2 min-h-40 w-full border-axis-gold/30 bg-axis-black px-4 py-4 text-base text-[16px] text-white shadow-none focus:border-axis-gold focus:ring-axis-gold"
             placeholder="Tell us about the site, package scope, location and programme."
           />
         </label>
@@ -144,7 +144,7 @@ function Field({
         name={name}
         type={type}
         required={required}
-        className="mt-2 min-h-12 w-full border-axis-gold/30 bg-axis-black px-4 py-4 text-base text-white shadow-none focus:border-axis-gold focus:ring-axis-gold"
+        className="mt-2 min-h-12 w-full border-axis-gold/30 bg-axis-black px-4 py-4 text-base text-[16px] text-white shadow-none focus:border-axis-gold focus:ring-axis-gold"
       />
     </label>
   );

@@ -2,11 +2,12 @@ import Link from "next/link";
 import { Building2, Facebook, Instagram, Linkedin, MapPin, Phone, type LucideIcon } from "lucide-react";
 import { contactDetails, footerServices, navItems, socialLinks } from "@/lib/content";
 import { Logo } from "@/components/logo";
+import { LEGAL_NAME } from "@/lib/site";
 
 const socialIcons: Record<(typeof socialLinks)[number]["network"], LucideIcon> = {
   facebook: Facebook,
   instagram: Instagram,
-  linkedin: Linkedin
+  linkedin: Linkedin,
 };
 
 export function Footer() {
@@ -20,7 +21,9 @@ export function Footer() {
         <div className="pr-8">
           <Logo className="h-32 w-32 object-cover object-center sm:h-40 sm:w-40" />
           <p className="mt-6 max-w-md text-sm leading-7 text-axis-muted">
-            Premium groundworks, foundations, drainage, external works and site preparation for major construction projects and exacting private clients.
+            SouthAxis Infrastructure Ltd — professional groundworks, foundations, drainage,
+            external works and site preparation for commercial and residential projects across
+            Portsmouth, Hampshire and the South Coast.
           </p>
           {socialLinks.length > 0 ? (
             <div className="mt-7 flex flex-wrap gap-3">
@@ -44,33 +47,62 @@ export function Footer() {
         </div>
         <div>
           <h2 className="font-display text-2xl font-black uppercase text-white">Quick links</h2>
-          <nav className="mt-6 grid gap-3">
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="flex min-h-10 items-center text-sm font-semibold text-axis-silver hover:text-axis-goldSoft">
-              {item.label}
+          <nav aria-label="Footer" className="mt-6 grid gap-3">
+            <Link
+              href="/"
+              className="flex min-h-10 items-center text-sm font-semibold text-axis-silver hover:text-axis-goldSoft"
+            >
+              Home
             </Link>
-          ))}
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="flex min-h-10 items-center text-sm font-semibold text-axis-silver hover:text-axis-goldSoft"
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
         </div>
         <div>
           <h2 className="font-display text-2xl font-black uppercase text-white">Services</h2>
-          <div className="mt-6 grid gap-3">
+          <nav aria-label="Footer services" className="mt-6 grid gap-3">
             {footerServices.map((service) => (
-              <span key={service} className="text-sm leading-6 text-axis-silver">{service}</span>
+              <Link
+                key={service.slug}
+                href={`/services#${service.slug}`}
+                className="text-sm leading-6 text-axis-silver hover:text-axis-goldSoft"
+              >
+                {service.title}
+              </Link>
             ))}
-          </div>
+          </nav>
         </div>
         <div>
           <h2 className="font-display text-2xl font-black uppercase text-white">Contact</h2>
-          <div className="mt-6 grid gap-4 text-sm text-axis-silver">
-            <a href={contactDetails.phoneHref} className="flex gap-3 leading-6 text-axis-silver hover:text-axis-goldSoft"><Phone size={17} className="shrink-0 text-axis-gold" /> {contactDetails.phone}</a>
-            <span className="flex gap-3 leading-6"><MapPin size={17} className="shrink-0 text-axis-gold" /> {contactDetails.addressLines.join(", ")}</span>
-            <span className="flex gap-3 leading-6"><Building2 size={17} className="shrink-0 text-axis-gold" /> Company No: {contactDetails.companyNo}</span>
-          </div>
+          <address className="mt-6 grid gap-4 text-sm not-italic text-axis-silver">
+            <p className="font-semibold text-white">{LEGAL_NAME}</p>
+            <a
+              href={contactDetails.phoneHref}
+              className="flex gap-3 leading-6 text-axis-silver hover:text-axis-goldSoft"
+            >
+              <Phone size={17} className="shrink-0 text-axis-gold" aria-hidden="true" />
+              <span>{contactDetails.phone}</span>
+            </a>
+            <p className="flex gap-3 leading-6">
+              <MapPin size={17} className="shrink-0 text-axis-gold" aria-hidden="true" />
+              <span>{contactDetails.addressLines.join(", ")}</span>
+            </p>
+            <p className="flex gap-3 leading-6">
+              <Building2 size={17} className="shrink-0 text-axis-gold" aria-hidden="true" />
+              <span>Company No: {contactDetails.companyNo}</span>
+            </p>
+          </address>
         </div>
       </div>
       <div className="relative border-t border-white/10 px-4 py-5 text-center text-[0.68rem] uppercase leading-5 tracking-[0.12em] text-axis-muted sm:px-6 sm:text-xs sm:tracking-[0.18em]">
-        Copyright {new Date().getFullYear()} SouthAxis Infrastructure. All rights reserved.
+        Copyright {new Date().getFullYear()} {LEGAL_NAME}. All rights reserved.
       </div>
     </footer>
   );

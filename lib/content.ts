@@ -70,6 +70,7 @@ export const socialLinks: Array<{
 
 export const services = [
   {
+    slug: "groundworks",
     title: "Groundworks",
     description:
       "Bulk excavations, reduced levels, trenching, reinstatement and engineered build-ups for commercial construction sites and high-spec residential schemes.",
@@ -79,66 +80,73 @@ export const services = [
     points: ["Bulk excavation", "Reduced levels", "Trenching", "Engineered build-ups"]
   },
   {
+    slug: "foundations",
     title: "Foundations",
     description:
       "Foundation preparation and concrete-ready packages for structural footprints, extensions, pads, strips and multi-plot development programmes.",
     icon: Layers3,
     image: imageSet.foundations,
-    imageAlt: "UK residential housing site with concrete strip foundations, excavated trenches and plant on an active building site",
+    imageAlt: "Residential strip foundations on a UK housing development",
     points: ["Strip foundations", "Pad foundations", "Oversite preparation", "Inspection-ready excavations"]
   },
   {
+    slug: "drainage",
     title: "Drainage",
     description:
       "Foul, storm and surface water drainage delivered with accurate falls, chamber coordination and a clean route to inspection and adoption.",
     icon: Droplets,
     image: imageSet.drainage,
-    imageAlt: "Corrugated drainage pipes being installed in a gravel-bedded trench",
+    imageAlt: "Underground drainage installation on a construction site",
     points: ["Foul drainage", "Storm drainage", "Chambers", "Surface water management"]
   },
   {
+    slug: "external-works",
     title: "External Works",
     description:
       "Hardstanding, kerbs, edgings, access routes and external finishes designed around durable performance and professional handover.",
     icon: Fence,
     image: imageSet.externalWorks,
-    imageAlt: "New UK housing estate access road with concrete kerbs and unfinished external works",
+    imageAlt: "Estate road construction with concrete kerbs and external works",
     points: ["Kerbing", "Hardstanding", "Access routes", "External finishes"]
   },
   {
+    slug: "site-preparation",
     title: "Site Preparation",
     description:
       "Early enabling works that turn constrained land into a controlled construction environment, ready for follow-on trades and plant movement.",
     icon: Construction,
     image: imageSet.sitePreparation,
-    imageAlt: "Excavators earthmoving and preparing formation on a construction site",
+    imageAlt: "Groundworks excavator carrying out site preparation",
     points: ["Site clearance", "Temporary access", "Compound preparation", "Enabling works"]
   },
   {
+    slug: "commercial-infrastructure",
     title: "Commercial Infrastructure",
     description:
       "Civil and groundwork packages for developers, principal contractors and commercial operators working to demanding site programmes.",
     icon: Building2,
     image: imageSet.commercial,
-    imageAlt: "Large commercial civil engineering site with excavator and concrete works",
+    imageAlt: "Commercial civil engineering site with excavator and concrete works",
     points: ["Developer packages", "Contractor support", "Programme sequencing", "Multi-trade coordination"]
   },
   {
+    slug: "residential-groundworks",
     title: "Residential Groundworks",
     description:
       "High-quality domestic groundwork for private clients, extensions, drainage improvements, driveways and small development plots.",
     icon: LandPlot,
     image: imageSet.residential,
-    imageAlt: "Modern UK new-build houses with driveway formation and residential groundworks",
+    imageAlt: "New-build housing plots with driveway formation and residential groundworks",
     points: ["Extensions", "Private drainage", "Driveway preparation", "Property protection"]
   },
   {
+    slug: "utility-preparation",
     title: "Utility Preparation",
     description:
       "Service trenches, duct routes and reinstatement packages planned to integrate cleanly with utilities, roads and site logistics.",
     icon: Cable,
     image: imageSet.utility,
-    imageAlt: "Excavated service trench with organised utility ducts prepared for underground services",
+    imageAlt: "Service trench with organised utility ducting prepared for underground services",
     points: ["Service trenches", "Duct routes", "Backfill", "Reinstatement"]
   }
 ];
@@ -148,7 +156,9 @@ export const projects = [
     title: "Distribution Yard Enabling Works",
     location: "Midlands logistics corridor",
     type: "Commercial infrastructure",
+    relatedServiceSlug: "commercial-infrastructure",
     image: imageSet.commercial,
+    imageAlt: "Commercial yard enabling works with hardstanding and plant access routes",
     description:
       "Formation, drainage coordination and hardstanding preparation for a high-traffic distribution yard upgrade.",
     metrics: [
@@ -161,7 +171,9 @@ export const projects = [
     title: "Multi-Plot Foundation Package",
     location: "Residential development site",
     type: "Foundations",
+    relatedServiceSlug: "foundations",
     image: imageSet.foundations,
+    imageAlt: "Multi-plot residential foundation trenches prepared for concrete",
     description:
       "Sequenced excavation, trench preparation and concrete coordination across a compact residential development footprint.",
     metrics: [
@@ -174,7 +186,9 @@ export const projects = [
     title: "Primary Drainage Renewal",
     location: "Occupied private estate",
     type: "Drainage",
+    relatedServiceSlug: "drainage",
     image: imageSet.drainage,
+    imageAlt: "Drainage renewal trench with pipe bedding on an occupied estate",
     description:
       "Targeted drainage replacement with controlled excavations, protected access and clean reinstatement around live property use.",
     metrics: [
@@ -187,7 +201,9 @@ export const projects = [
     title: "Commercial Site Preparation",
     location: "Out-of-town development",
     type: "Site preparation",
+    relatedServiceSlug: "site-preparation",
     image: imageSet.sitePreparation,
+    imageAlt: "Commercial site clearance and reduced level excavation for enabling works",
     description:
       "Clearance, reduced levels and temporary construction access for a commercial shell and core build programme.",
     metrics: [
@@ -225,7 +241,10 @@ export const blogPosts = [
     category: "Planning",
     title: "Planning groundworks before mobilisation",
     image: imageSet.groundworks,
-    excerpt: "The strongest groundwork packages are decided before plant arrives, with access, sequencing and inspection points already understood.",
+    imageAlt: "Excavator preparing a groundworks site ahead of mobilisation",
+    relatedServiceSlug: "groundworks",
+    excerpt:
+      "The strongest groundwork packages are decided before plant arrives, with access, sequencing and inspection points already understood.",
     body: [
       {
         heading: "Start with constraints",
@@ -242,7 +261,10 @@ export const blogPosts = [
     category: "Drainage",
     title: "Why drainage details drive site performance",
     image: imageSet.drainage,
-    excerpt: "Drainage design affects programme, safety and long-term performance, so the details deserve early attention.",
+    imageAlt: "Drainage pipes laid in a prepared trench on a construction site",
+    relatedServiceSlug: "drainage",
+    excerpt:
+      "Drainage design affects programme, safety and long-term performance, so the details deserve early attention.",
     body: [
       {
         heading: "Falls and access matter",
@@ -259,7 +281,10 @@ export const blogPosts = [
     category: "Foundations",
     title: "Foundation preparation for residential projects",
     image: imageSet.residential,
-    excerpt: "Residential groundwork benefits from the same discipline as commercial works: scope clarity, clean excavations and practical communication.",
+    imageAlt: "Residential foundation preparation on a housing plot",
+    relatedServiceSlug: "foundations",
+    excerpt:
+      "Residential groundwork benefits from the same discipline as commercial works: scope clarity, clean excavations and practical communication.",
     body: [
       {
         heading: "Keep the brief clear",
@@ -273,4 +298,7 @@ export const blogPosts = [
   }
 ];
 
-export const footerServices = services.slice(0, 6).map((service) => service.title);
+export const footerServices = services.slice(0, 6).map((service) => ({
+  title: service.title,
+  slug: service.slug
+}));

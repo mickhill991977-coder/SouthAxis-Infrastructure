@@ -83,7 +83,7 @@ export const services = [
       "Foundation preparation and concrete-ready packages for structural footprints, extensions, pads, strips and multi-plot development programmes.",
     icon: Layers3,
     image: imageSet.foundations,
-    imageAlt: "UK residential house foundations with precast concrete beams on an active building site",
+    imageAlt: "UK residential housing site with concrete strip foundations, excavated trenches and plant on an active building site",
     points: ["Strip foundations", "Pad foundations", "Oversite preparation", "Inspection-ready excavations"]
   },
   {

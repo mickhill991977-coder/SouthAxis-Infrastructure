@@ -16,7 +16,7 @@ export default function BlogPage() {
         eyebrow="Blog"
         title="Field intelligence from the ground up"
         body="Practical thinking for developers, contractors and clients planning groundwork packages with commercial pressure attached."
-        image={imageSet.team}
+        image={imageSet.formation}
       />
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

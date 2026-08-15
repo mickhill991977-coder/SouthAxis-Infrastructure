@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Loader2, Send } from "lucide-react";
+import { contactDetails } from "@/lib/content";
 
 type FormState = {
   status: "idle" | "loading" | "success" | "error";
@@ -18,14 +19,22 @@ const projectTypes = [
   "Other"
 ];
 
+const successMessage = "Thanks — your enquiry has been sent. The SouthAxis team will be in touch.";
+const failureMessage = `We couldn't send your enquiry. Please try again or call ${contactDetails.phone}.`;
+
 export function ContactForm() {
   const [state, setState] = useState<FormState>({ status: "idle", message: "" });
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (state.status === "loading") {
+      return;
+    }
+
     setState({ status: "loading", message: "" });
 
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
     const body = Object.fromEntries(formData.entries());
 
     try {
@@ -37,19 +46,22 @@ export function ContactForm() {
       const result = (await response.json()) as { ok: boolean; message: string };
 
       if (!response.ok || !result.ok) {
-        setState({ status: "error", message: result.message || "Please check the form and try again." });
+        setState({
+          status: "error",
+          message: result.message || failureMessage
+        });
         return;
       }
 
-      event.currentTarget.reset();
-      setState({ status: "success", message: result.message });
+      form.reset();
+      setState({ status: "success", message: result.message || successMessage });
     } catch {
-      setState({ status: "error", message: "The form could not be submitted. Please try again." });
+      setState({ status: "error", message: failureMessage });
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} className="metal-panel p-5 sm:p-6 md:p-9">
+    <form onSubmit={handleSubmit} className="metal-panel p-5 sm:p-6 md:p-9" noValidate>
       <input className="hidden" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <div className="mb-8 border-l border-axis-gold pl-5">
         <p className="font-mono text-xs uppercase tracking-[0.18em] text-axis-goldSoft sm:text-sm sm:tracking-[0.24em]">Start the conversation</p>
@@ -65,7 +77,7 @@ export function ContactForm() {
           <select
             name="projectType"
             required
-            className="mt-2 min-h-12 w-full border-axis-gold/30 bg-axis-black px-4 py-4 text-base text-white shadow-none focus:border-axis-gold focus:ring-axis-gold"
+            className="mt-2 min-h-12 w-full border-axis-gold/30 bg-axis-black px-4 py-4 text-base text-[16px] text-white shadow-none focus:border-axis-gold focus:ring-axis-gold"
             defaultValue=""
           >
             <option value="" disabled>
@@ -84,7 +96,7 @@ export function ContactForm() {
             name="message"
             required
             rows={7}
-            className="mt-2 min-h-40 w-full border-axis-gold/30 bg-axis-black px-4 py-4 text-base text-white shadow-none focus:border-axis-gold focus:ring-axis-gold"
+            className="mt-2 min-h-40 w-full border-axis-gold/30 bg-axis-black px-4 py-4 text-base text-[16px] text-white shadow-none focus:border-axis-gold focus:ring-axis-gold"
             placeholder="Tell us about the site, package scope, location and programme."
           />
         </label>
@@ -97,6 +109,7 @@ export function ContactForm() {
               : "border-red-400/40 bg-red-400/10 text-red-200"
           }`}
           role="status"
+          aria-live="polite"
         >
           {state.message}
         </div>
@@ -106,8 +119,8 @@ export function ContactForm() {
         disabled={state.status === "loading"}
         className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 border border-axis-gold bg-axis-gold px-5 py-4 text-center text-sm font-black uppercase tracking-[0.12em] text-axis-black shadow-gold hover:-translate-y-1 hover:bg-axis-goldSoft disabled:cursor-not-allowed disabled:opacity-70 sm:px-6 sm:tracking-[0.18em]"
       >
-        {state.status === "loading" ? <Loader2 className="animate-spin" size={18} /> : <Send size={18} />}
-        Send enquiry
+        {state.status === "loading" ? <Loader2 className="animate-spin" size={18} aria-hidden="true" /> : <Send size={18} aria-hidden="true" />}
+        {state.status === "loading" ? "Sending enquiry..." : "Send enquiry"}
       </button>
     </form>
   );
@@ -131,7 +144,7 @@ function Field({
         name={name}
         type={type}
         required={required}
-        className="mt-2 min-h-12 w-full border-axis-gold/30 bg-axis-black px-4 py-4 text-base text-white shadow-none focus:border-axis-gold focus:ring-axis-gold"
+        className="mt-2 min-h-12 w-full border-axis-gold/30 bg-axis-black px-4 py-4 text-base text-[16px] text-white shadow-none focus:border-axis-gold focus:ring-axis-gold"
       />
     </label>
   );

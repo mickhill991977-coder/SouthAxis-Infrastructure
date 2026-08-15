@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   description:
     "Premium groundworks, foundations, drainage, external works and site preparation for developers, contractors and homeowners.",
-  metadataBase: new URL("https://southaxis-infrastructure.vercel.app"),
+  metadataBase: new URL("https://south-axis-infrastructure.vercel.app"),
   openGraph: {
     title: "SouthAxis Infrastructure",
     description:

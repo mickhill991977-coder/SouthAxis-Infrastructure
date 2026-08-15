@@ -28,13 +28,19 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
 RESEND_API_KEY=
 CONTACT_TO_EMAIL=
+CONTACT_FROM_EMAIL=
 ```
 
-The contact form posts to `/api/contact`, validates the payload, rejects honeypot submissions, inserts into `contact_messages`, and sends an instant Resend email alert.
+### Contact delivery notes
+
+- `CONTACT_TO_EMAIL` receives enquiry notifications.
+- `CONTACT_FROM_EMAIL` must be a Resend-verified sender on your production domain (for example `SouthAxis Website <enquiries@your-domain.co.uk>`).
+- The contact form posts to `/api/contact`, validates the payload, silently ignores honeypot submissions, archives into `contact_messages` when Supabase is available, and sends a Resend notification email.
+- Email delivery is the primary success path. A Supabase archive failure is logged server-side and does not block a successful email notification.
 
 ## Database
 
-Run the migration in `supabase/migrations/20260523000000_initial_schema.sql` against your Supabase project. It creates:
+Run the migrations in `supabase/migrations/` against your Supabase project. They create:
 
 - `contact_messages`
 - `projects`

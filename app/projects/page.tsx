@@ -15,7 +15,7 @@ export default function ProjectsPage() {
         eyebrow="Project showcase"
         title="Dark gallery. Heavy groundwork. Clean outcomes."
         body="A high-level view of the project environments SouthAxis is built to support, from commercial enabling works to residential foundations and drainage renewals."
-        image={imageSet.concrete}
+        image={imageSet.commercial}
       />
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="grid gap-6 md:grid-cols-2">

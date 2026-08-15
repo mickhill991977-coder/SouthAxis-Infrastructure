@@ -14,7 +14,7 @@ export function CTA() {
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.18em] text-axis-goldSoft sm:text-sm sm:tracking-[0.22em]">Ready to mobilise</p>
           <h2 className="font-display mt-3 max-w-3xl text-3xl font-black uppercase leading-none text-white sm:text-4xl md:text-6xl">
-            Talk to SouthAxis about your next ground package.
+            Talk to SouthAxis about your next groundworks package.
           </h2>
         </div>
         <Link

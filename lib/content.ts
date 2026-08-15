@@ -138,7 +138,7 @@ export const services = [
       "Service trenches, duct routes and reinstatement packages planned to integrate cleanly with utilities, roads and site logistics.",
     icon: Cable,
     image: imageSet.utility,
-    imageAlt: "Excavated UK service trench with utility ducts prepared for underground services",
+    imageAlt: "Excavated service trench with organised utility ducts prepared for underground services",
     points: ["Service trenches", "Duct routes", "Backfill", "Reinstatement"]
   }
 ];

@@ -31,10 +31,10 @@ export const imageSet = {
 };
 
 export const stats = [
-  { value: "8", label: "Core Service Packages" },
-  { value: "24hr", label: "Quote Response Target" },
-  { value: "Site-led", label: "Programme Delivery" },
-  { value: "UK", label: "Commercial & Residential" }
+  { value: "RAMS", label: "Safe, method-led delivery" },
+  { value: "PROGRAMME", label: "Sequenced site delivery" },
+  { value: "QA", label: "Inspection-ready work" },
+  { value: "COORDINATION", label: "Contractor & developer focus" }
 ];
 
 export const contactDetails = {

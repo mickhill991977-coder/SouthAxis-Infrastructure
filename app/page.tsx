@@ -46,7 +46,9 @@ export default function HomePage() {
               <br />
               <span className="whitespace-nowrap break-normal">Contractors</span>
               <br />
-              <span className="gold-text break-normal">Portsmouth & Hampshire</span>
+              <span className="gold-text mt-2 inline-block text-[0.55em] leading-[1.05] tracking-[0.02em] sm:mt-3 sm:whitespace-nowrap">
+                Portsmouth & Hampshire
+              </span>
             </h1>
             <p className="mt-6 max-w-full text-base leading-7 text-axis-silver sm:mt-8 sm:max-w-2xl sm:text-lg sm:leading-8 md:max-w-3xl md:text-xl">
               Professional groundworks and infrastructure for developers, principal contractors,

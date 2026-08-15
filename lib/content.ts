@@ -83,7 +83,7 @@ export const services = [
       "Foundation preparation and concrete-ready packages for structural footprints, extensions, pads, strips and multi-plot development programmes.",
     icon: Layers3,
     image: imageSet.foundations,
-    imageAlt: "Reinforced concrete foundation slab with steel rebar preparation",
+    imageAlt: "UK residential house foundations with precast concrete beams on an active building site",
     points: ["Strip foundations", "Pad foundations", "Oversite preparation", "Inspection-ready excavations"]
   },
   {
@@ -101,7 +101,7 @@ export const services = [
       "Hardstanding, kerbs, edgings, access routes and external finishes designed around durable performance and professional handover.",
     icon: Fence,
     image: imageSet.externalWorks,
-    imageAlt: "Road surfacing plant laying access road and hardstanding",
+    imageAlt: "New UK housing estate access road with concrete kerbs and unfinished external works",
     points: ["Kerbing", "Hardstanding", "Access routes", "External finishes"]
   },
   {
@@ -128,7 +128,7 @@ export const services = [
       "High-quality domestic groundwork for private clients, extensions, drainage improvements, driveways and small development plots.",
     icon: LandPlot,
     image: imageSet.residential,
-    imageAlt: "Foundation trench excavation on a residential building plot",
+    imageAlt: "Modern UK new-build houses with driveway formation and residential groundworks",
     points: ["Extensions", "Private drainage", "Driveway preparation", "Property protection"]
   },
   {
@@ -137,7 +137,7 @@ export const services = [
       "Service trenches, duct routes and reinstatement packages planned to integrate cleanly with utilities, roads and site logistics.",
     icon: Cable,
     image: imageSet.utility,
-    imageAlt: "Service ducts and conduit routes prepared across a reinforced concrete slab",
+    imageAlt: "Excavated UK service trench with utility ducts prepared for underground services",
     points: ["Service trenches", "Duct routes", "Backfill", "Reinstatement"]
   }
 ];

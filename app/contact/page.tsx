@@ -16,12 +16,12 @@ export default function ContactPage() {
         eyebrow="Contact us"
         title="Bring SouthAxis into the programme early"
         body="Share your site requirements, package scope or residential groundwork enquiry. We will respond with the next practical step."
-        image={imageSet.roadworks}
+        image={imageSet.formation}
       />
       <section className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[0.42fr_0.58fr] lg:gap-10 lg:px-8 lg:py-20">
         <aside className="gold-frame h-fit overflow-hidden bg-axis-black">
           <div className="relative h-56 sm:h-72">
-            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imageSet.team})` }} />
+            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imageSet.commercial})` }} />
             <div className="absolute inset-0 bg-gradient-to-t from-axis-black to-transparent" />
           </div>
           <div className="p-5 sm:p-7">

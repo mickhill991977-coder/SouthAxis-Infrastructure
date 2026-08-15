@@ -1,7 +1,13 @@
 import Link from "next/link";
-import { Building2, Facebook, Instagram, Linkedin, MapPin, Phone } from "lucide-react";
-import { contactDetails, footerServices, navItems } from "@/lib/content";
+import { Building2, Facebook, Instagram, Linkedin, MapPin, Phone, type LucideIcon } from "lucide-react";
+import { contactDetails, footerServices, navItems, socialLinks } from "@/lib/content";
 import { Logo } from "@/components/logo";
+
+const socialIcons: Record<(typeof socialLinks)[number]["network"], LucideIcon> = {
+  facebook: Facebook,
+  instagram: Instagram,
+  linkedin: Linkedin
+};
 
 export function Footer() {
   return (
@@ -16,13 +22,25 @@ export function Footer() {
           <p className="mt-6 max-w-md text-sm leading-7 text-axis-muted">
             Premium groundworks, foundations, drainage, external works and site preparation for major construction projects and exacting private clients.
           </p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            {[Linkedin, Instagram, Facebook].map((Icon, index) => (
-              <a key={index} href="#" aria-label="Social profile" className="flex h-12 w-12 items-center justify-center border border-axis-gold/40 text-axis-gold hover:bg-axis-gold hover:text-axis-black">
-                <Icon size={18} />
-              </a>
-            ))}
-          </div>
+          {socialLinks.length > 0 ? (
+            <div className="mt-7 flex flex-wrap gap-3">
+              {socialLinks.map((item) => {
+                const Icon = socialIcons[item.network];
+                return (
+                  <a
+                    key={item.network}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={item.label}
+                    className="flex h-12 w-12 items-center justify-center border border-axis-gold/40 text-axis-gold hover:bg-axis-gold hover:text-axis-black"
+                  >
+                    <Icon size={18} aria-hidden="true" />
+                  </a>
+                );
+              })}
+            </div>
+          ) : null}
         </div>
         <div>
           <h2 className="font-display text-2xl font-black uppercase text-white">Quick links</h2>

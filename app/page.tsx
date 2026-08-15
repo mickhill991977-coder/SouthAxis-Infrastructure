@@ -2,19 +2,23 @@ import Link from "next/link";
 import { ArrowRight, Building2, CheckCircle2, Quote, ShieldCheck } from "lucide-react";
 import { AnimatedStats } from "@/components/animated-stats";
 import { CTA } from "@/components/cta";
-import { Logo } from "@/components/logo";
 import { SectionHeading } from "@/components/section-heading";
-import { capabilityIcons, contactDetails, imageSet, projects, services, testimonials } from "@/lib/content";
+import { contactDetails, imageSet, projects, services, testimonials } from "@/lib/content";
 
 export default function HomePage() {
   return (
     <>
       <section className="relative min-h-[calc(100svh-6rem)] overflow-hidden border-b border-axis-gold/25 bg-axis-black cinematic-overlay noise md:min-h-[calc(100vh-6rem)]">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imageSet.hero})` }} />
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${imageSet.hero})` }}
+          role="img"
+          aria-label="SouthAxis Infrastructure groundworks site"
+        />
         <div className="absolute inset-0 industrial-grid opacity-[0.18]" />
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-axis-black to-transparent" />
-        <div className="relative z-10 mx-auto grid min-h-[calc(100svh-6rem)] max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 sm:py-16 md:min-h-[calc(100vh-6rem)] lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-20">
-          <div className="reveal-up w-[19.3rem] max-w-full min-[390px]:w-[20.2rem] min-[430px]:w-[22.5rem] sm:w-auto sm:max-w-none">
+        <div className="relative z-10 mx-auto flex min-h-[calc(100svh-6rem)] max-w-7xl items-center px-4 py-12 sm:px-6 sm:py-16 md:min-h-[calc(100vh-6rem)] lg:px-8 lg:py-20">
+          <div className="reveal-up w-full max-w-4xl">
             <div className="mb-5 inline-flex max-w-full border border-axis-gold/50 bg-axis-black/55 px-3 py-2 text-[0.68rem] font-black uppercase tracking-[0.14em] text-axis-goldSoft backdrop-blur sm:mb-7 sm:px-4 sm:text-xs sm:tracking-[0.22em]">
               Groundworks for serious construction
             </div>
@@ -25,7 +29,7 @@ export default function HomePage() {
               <br />
               <span className="gold-text whitespace-nowrap break-normal">Future.</span>
             </h1>
-            <p className="mt-6 max-w-full text-base leading-7 text-axis-silver sm:mt-8 sm:max-w-2xl sm:text-lg sm:leading-8 md:text-xl">
+            <p className="mt-6 max-w-full text-base leading-7 text-axis-silver sm:mt-8 sm:max-w-2xl sm:text-lg sm:leading-8 md:max-w-3xl md:text-xl">
               Professional groundwork and infrastructure solutions for commercial developments,
               construction sites and residential projects.
             </p>
@@ -42,26 +46,6 @@ export default function HomePage() {
               >
                 View Projects
               </Link>
-            </div>
-          </div>
-
-          <div className="gold-frame hidden bg-axis-black/72 p-5 backdrop-blur-xl lg:block">
-            <div className="relative aspect-[4/5] overflow-hidden">
-              <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imageSet.excavator})` }} />
-              <div className="absolute inset-0 bg-gradient-to-t from-axis-black via-axis-black/35 to-transparent" />
-              <Logo className="absolute left-6 top-6 h-32 w-32 object-cover object-center" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <p className="font-mono text-xs uppercase tracking-[0.24em] text-axis-goldSoft">SouthAxis command panel</p>
-                <h2 className="font-display mt-3 text-4xl font-black uppercase leading-none text-white">Built below ground. Trusted above it.</h2>
-                <div className="mt-6 grid gap-3">
-                  {capabilityIcons.map((item) => (
-                    <div key={item.label} className="flex items-center gap-3 border border-white/10 bg-axis-black/70 px-4 py-3 text-sm font-bold uppercase tracking-wide text-axis-silver">
-                      <item.icon size={18} className="text-axis-gold" />
-                      {item.label}
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -84,7 +68,11 @@ export default function HomePage() {
               key={service.title}
               className="group metal-panel overflow-hidden hover:-translate-y-1 hover:border-axis-gold/60"
             >
-              <div className="relative h-52 overflow-hidden sm:h-56">
+              <div
+                className="relative h-52 overflow-hidden sm:h-56"
+                role="img"
+                aria-label={service.imageAlt}
+              >
                 <div className="absolute inset-0 bg-cover bg-center transition duration-500 group-hover:scale-105" style={{ backgroundImage: `url(${service.image})` }} />
                 <div className="absolute inset-0 bg-gradient-to-t from-axis-black via-axis-black/45 to-transparent" />
                 <div className="absolute bottom-5 left-5 flex h-12 w-12 items-center justify-center border border-axis-gold bg-axis-black/75 text-axis-gold">
@@ -104,12 +92,14 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl gap-px bg-white/10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-2 lg:px-8 lg:py-20">
           <SplitPanel
             title="Commercial developments"
-            image={imageSet.concrete}
+            image={imageSet.commercial}
+            imageAlt="Commercial civil engineering and groundwork operations"
             points={["Developer infrastructure packages", "Principal contractor support", "Drainage, foundations and external works"]}
           />
           <SplitPanel
             title="Residential projects"
             image={imageSet.residential}
+            imageAlt="Residential plot groundworks and foundation trench"
             points={["Extensions and private plots", "Driveways and drainage", "Clean, controlled domestic working"]}
           />
         </div>
@@ -158,7 +148,12 @@ export default function HomePage() {
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="gold-frame grid overflow-hidden bg-axis-black lg:grid-cols-[0.42fr_0.58fr]">
           <div className="relative min-h-[280px] sm:min-h-[360px] lg:min-h-[420px]">
-            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imageSet.team})` }} />
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${imageSet.utility})` }}
+              role="img"
+              aria-label="SouthAxis site teams coordinating infrastructure package delivery"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-axis-black via-transparent to-transparent" />
           </div>
           <div className="p-5 sm:p-8 md:p-12">
@@ -180,10 +175,25 @@ export default function HomePage() {
   );
 }
 
-function SplitPanel({ title, image, points }: { title: string; image: string; points: string[] }) {
+function SplitPanel({
+  title,
+  image,
+  imageAlt,
+  points
+}: {
+  title: string;
+  image: string;
+  imageAlt: string;
+  points: string[];
+}) {
   return (
     <article className="relative min-h-[360px] overflow-hidden bg-axis-black sm:min-h-[440px] lg:min-h-[520px]">
-      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${image})` }} />
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${image})` }}
+        role="img"
+        aria-label={imageAlt}
+      />
       <div className="absolute inset-0 bg-gradient-to-t from-axis-black via-axis-black/55 to-axis-black/10" />
       <div className="relative z-10 flex min-h-[360px] flex-col justify-end p-5 sm:min-h-[440px] sm:p-8 md:p-10 lg:min-h-[520px]">
         <Building2 className="text-axis-gold" size={34} />

@@ -9,7 +9,7 @@ export function Logo({ className = "", priority = false }: LogoProps) {
   return (
     <Image
       src="/logo.jpg"
-      alt="SouthAxis Infrastructure"
+      alt="SouthAxis Infrastructure Ltd"
       width={1254}
       height={1254}
       priority={priority}

@@ -12,17 +12,27 @@ export function CTA() {
       </div>
       <div className="relative mx-auto flex max-w-7xl flex-col gap-7 px-4 py-14 sm:px-6 sm:py-16 md:flex-row md:items-center md:justify-between lg:px-8 lg:py-20">
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-axis-goldSoft sm:text-sm sm:tracking-[0.22em]">Ready to mobilise</p>
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-axis-goldSoft sm:text-sm sm:tracking-[0.22em]">
+            Ready to mobilise
+          </p>
           <h2 className="font-display mt-3 max-w-3xl text-3xl font-black uppercase leading-none text-white sm:text-4xl md:text-6xl">
             Talk to SouthAxis about your next groundworks package.
           </h2>
         </div>
-        <Link
-          href={contactDetails.phoneHref}
-          className="inline-flex min-h-12 w-full items-center justify-center gap-2 border border-axis-gold bg-axis-gold px-5 py-4 text-center text-sm font-black uppercase tracking-[0.12em] text-axis-black shadow-gold hover:-translate-y-1 hover:bg-axis-goldSoft sm:w-auto sm:px-7 sm:tracking-[0.18em]"
-        >
-          Call {contactDetails.phone} <ArrowRight size={18} />
-        </Link>
+        <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+          <Link
+            href={contactDetails.phoneHref}
+            className="inline-flex min-h-12 w-full items-center justify-center gap-2 border border-axis-gold bg-axis-gold px-5 py-4 text-center text-sm font-black uppercase tracking-[0.12em] text-axis-black shadow-gold hover:-translate-y-1 hover:bg-axis-goldSoft sm:w-auto sm:px-7 sm:tracking-[0.18em]"
+          >
+            Call {contactDetails.phone} <ArrowRight size={18} />
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex min-h-12 w-full items-center justify-center gap-2 border border-white/25 bg-axis-black/45 px-5 py-4 text-center text-sm font-black uppercase tracking-[0.12em] text-white backdrop-blur hover:-translate-y-1 hover:border-axis-gold hover:text-axis-goldSoft sm:w-auto sm:px-7 sm:tracking-[0.18em]"
+          >
+            Discuss your package
+          </Link>
+        </div>
       </div>
     </section>
   );

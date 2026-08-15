@@ -7,10 +7,10 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-axis-gold/20 bg-axis-black/78 backdrop-blur-xl">
       <div className="relative mx-auto flex h-24 w-full min-w-0 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="group flex shrink-0 items-center">
+        <Link href="/" className="group flex shrink-0 items-center" aria-label="SouthAxis Infrastructure Ltd home">
           <Logo priority className="h-14 w-28 object-cover object-center transition group-hover:opacity-[0.85] sm:h-16 sm:w-32 md:h-20 md:w-40" />
         </Link>
-        <nav className="hidden items-center gap-8 lg:flex xl:gap-10">
+        <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex xl:gap-10">
           {navItems.map((item) => (
             <Link
               key={item.href}

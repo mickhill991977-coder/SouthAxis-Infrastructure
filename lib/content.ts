@@ -30,11 +30,12 @@ export const imageSet = {
   formation: "/services/formation.jpg"
 };
 
+// PLACEHOLDER COMMERCIAL STATS — REPLACE WITH VERIFIED SOUTHAXIS FIGURES BEFORE RELYING ON THESE AS FACTUAL CLAIMS.
 export const stats = [
-  { value: "RAMS", label: "Safe, method-led delivery" },
-  { value: "PROGRAMME", label: "Sequenced site delivery" },
-  { value: "QA", label: "Inspection-ready work" },
-  { value: "COORDINATION", label: "Contractor & developer focus" }
+  { value: "£5M+", label: "Project value supported" },
+  { value: "50+", label: "Projects delivered" },
+  { value: "100+", label: "Plots / units serviced" },
+  { value: "10+", label: "Active client relationships" }
 ];
 
 export const contactDetails = {
